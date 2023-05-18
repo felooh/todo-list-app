@@ -1,0 +1,16 @@
+{% extends 'todos/layout.html' %}
+
+{% block body %}
+
+<form method="post">
+  {% csrf_token %}
+
+  <div class="form-group">
+    <label for="id_title">Category Title:</label>
+    <input type="text"  class="form-control" name="title" maxlength="100" required id="id_title">
+  </div>
+  <br>
+  <button type="submit" class = "btn btn-primary">Submit</button>
+</form>
+
+{% endblock body %}

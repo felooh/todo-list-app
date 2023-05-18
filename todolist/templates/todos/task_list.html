@@ -1,0 +1,24 @@
+{% extends 'todos/layout.html' %}
+
+{% block body %}
+   <h4>Tasks for Category: {{ category.title }}</h4>
+   <br>
+   {% for  task in tasks  %}
+      <ul class="list-group">
+         <a href="{% url 'todolist:viewTaskDetails' task.id %}" style="text-decoration:none" >
+            <li class="list-group-item list-group-item-action list-group-item-primary">{{ task }}</li>
+         </a>  
+     
+         {% empty %}   
+         <li class="list-group-item list-group-item-action list-group-item-danger">There are no tasks in this category</li>
+      </ul>
+   {% endfor %}
+   <br>
+   <div>
+      <a href="{% url 'todolist:index' %}" class="btn btn-success">Home</a>
+      <a href="{% url 'todolist:createTask' category.id  %}" class="btn btn-primary">Add Task</a>
+   </div>
+  
+   
+{% endblock body %}
+

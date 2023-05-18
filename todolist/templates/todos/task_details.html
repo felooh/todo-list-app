@@ -1,0 +1,22 @@
+{% extends 'todos/layout.html' %}
+
+{% block body %}
+  <h3>Task details for: {{task.task}}</h3>
+  {% if details %}
+    <ul>
+      <li>
+          {{  details }}
+      </li>
+    </ul>
+  {% else %}
+    <h7>Oops! No details for this task.<h7>
+  {% endif %}
+  <br><br>
+  
+  <button onclick="history.back()" id="done-button" class = "btn btn-danger">Go Back</button>
+  <a href="{% url 'todolist:deleteTask' task.id %}" class="btn btn-success" onclick="return confirm('Are you sure you want to delete this task?')">Delete</a>
+
+
+{% endblock body %}
+
+

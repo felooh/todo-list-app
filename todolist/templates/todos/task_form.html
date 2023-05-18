@@ -1,0 +1,26 @@
+{% extends 'todos/layout.html' %}
+
+
+{% block body %}
+  <h3>
+    Task Details
+  </h3>
+  <br>
+  <form method= "post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_task">Task:</label>
+      <input type="text"  class="form-control" name="task" maxlength="100" required id="id_task">
+    </div>
+    <div class="form-group">
+      <label for="id_description">Comment:</label>
+      <input type="text"  class="form-control" name="description" maxlength="100" required id="id_task">
+      <br><br>
+    </div>
+
+    <button onclick="history.back()" id="done-button" class = "btn btn-danger">Cancel</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+{% endblock body %}
+
