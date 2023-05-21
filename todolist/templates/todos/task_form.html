@@ -15,9 +15,19 @@
     <div class="form-group">
       <label for="id_description">Comment:</label>
       <input type="text"  class="form-control" name="description" maxlength="100" required id="id_task">
-      <br><br>
     </div>
-
+    <br>
+    <div class="form-group">
+      <label for="id_deadline_date">Deadline Date:</label>
+      <input type="date"  class="form-control" name="deadline_date" maxlength="100" required id="id_deadline_date">
+      <br>
+    </div>
+    <div class="form-group">
+      <label for="id_deadline_time">Deadline Time:</label>
+      <input type="time"  class="form-control" name="deadline_time" maxlength="100" required id="id_deadline_time">
+      <br>
+    </div>
+    <br><br>
     <button onclick="history.back()" id="done-button" class = "btn btn-danger">Cancel</button>
     <button type="submit" class="btn btn-success">Submit</button>
 

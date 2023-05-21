@@ -12,5 +12,8 @@ urlpatterns = [
     path("viewTask/<int:category_id>", views.viewTask, name="viewTask"),
     path("viewTaskDetails/<str:task_id>", views.viewTaskDetails, name="viewTaskDetails"),
     path("deleteTask/<int:task_id>", views.deleteTask, name="deleteTask"),
-    path("deleteCategory/<int:category_id>", views.deleteCategory, name="deleteCategory")
+    path("deleteCategory/<int:category_id>", views.deleteCategory, name="deleteCategory"),
+    path('numberOfTasks/<int:category_id>/', views.numberOfTasks, name='numberOfTasks'),
+    path('markAsDone/<int:task_id>', views.markAsDone, name="markAsDone"),
+    path('taskIsOverdue/<int:task_id>', views.taskIsOverdue, name="taskIsOverdue")
 ]

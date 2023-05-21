@@ -6,7 +6,17 @@
    {% for  task in tasks  %}
       <ul class="list-group">
          <a href="{% url 'todolist:viewTaskDetails' task.id %}" style="text-decoration:none" >
-            <li class="list-group-item list-group-item-action list-group-item-primary">{{ task }}</li>
+            <li class="list-group-item list-group-item-action list-group-item-primary">
+               {{ task }}
+               {% if task.is_complete %}
+               <span class="badge badge-success">Completed</span>
+               {% elif task.get_remaining_time.days < 0 %}
+                  <span class="badge badge-danger">Overdue</span>
+               {% else %}
+                  <span class="badge badge-info">{{ task.get_remaining_time.days }} days remaining</span>
+               {% endif %}
+               
+            </li>
          </a>  
      
          {% empty %}   
