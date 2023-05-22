@@ -1,0 +1,37 @@
+{% extends 'todos/layout.html' %}
+
+
+{% block body %}
+  <h3>
+    Task Details
+  </h3>
+  <br>
+  <form method= "post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="{{ form.task.id_for_label }}">Task:</label>
+        <input type="text" id="{{ form.task.id_for_label }}" class="form-control" name="{{ form.task.html_name }}" value="{{ form.task.value }}">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}">Description:</label>
+        <textarea  id="{{ form.description.id_for_label }}" class="form-control" name="{{ form.description.html_name }}">{{ form.description.value }}"</textarea>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="{{ form.deadline_date.id_for_label }}">Deadline Date:</label>
+        <input type="date" id="{{ form.deadline_date.id_for_label }}" class="form-control"  name="{{ form.deadline_date.html_name }}" required value="{{ form.deadline_date.value }}">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="{{ form.deadline_time.id_for_label }}">Deadline Time:</label>
+        <input type="time" id="{{ form.deadline_time.id_for_label }}" class="form-control" name="{{ form.deadline_time.html_name }}" required value="{{ form.deadline_time.value }}">
+    </div>
+
+    <br>
+    <button onclick="history.back()" id="done-button" class = "btn btn-danger">Cancel</button>
+    <button type="submit" class="btn btn-success">Save</button>
+
+  </form>
+{% endblock body %}
+

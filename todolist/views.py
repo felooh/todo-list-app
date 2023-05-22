@@ -2,11 +2,8 @@ from django.shortcuts import (render, get_object_or_404, HttpResponseRedirect)
 from .models import Category, ToDoTask
 from django.shortcuts import redirect
 from .forms import CategoryForm, ToDoTaskForm
-from django.utils import timezone
-# from datetime import datetime
-from django.utils import timezone
-from pytz import timezone
-import datetime
+from django.urls import reverse
+
 # Create your views here.
 
 #index
@@ -97,6 +94,37 @@ def viewTaskDetails(request, task_id):
     } 
 
     return render(request, 'todos/task_details.html', context)
+
+def editTask(request, task_id):
+    task = ToDoTask.objects.get(id= task_id)
+    category_id = task.category_id
+    
+    if request.method == "POST":
+        form = ToDoTaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            return redirect('todolist:viewTaskDetails', task_id=task_id)
+    else:
+        form = ToDoTaskForm(instance=task, initial={
+            
+            'task': task.task,
+            'description': task.description,
+            'deadline_date': task.deadline_date,
+            'deadline_time':task.deadline_time,
+            
+        })
+         
+    context = {
+        
+        "task":task,
+        "form":form,
+        "category_id":category_id,
+        "task_id":task_id
+        
+     }
+    
+    return render(request, "todos/edit_form.html", context)
+         
 
 #deleteCategory
 def deleteCategory(request, category_id):
