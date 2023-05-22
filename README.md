@@ -1,4 +1,3 @@
-# todo-list-app
 # To-Do List App
 
 This is a simple to-do list app built with Django. It allows users to create, manage, and track their tasks easily.
