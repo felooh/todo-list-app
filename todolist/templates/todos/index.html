@@ -20,7 +20,7 @@
   <ul class="list-group list-group-flush">
     {% for category in  categories %}
       <a href="{% url 'todolist:viewTask' category.id %}" style="text-decoration:none">
-          <li class="list-group-item list-group-item-secondary" class="list-group-item list-group-item-action list-group-item-primary">
+          <li class="list-group-item d-flex justify-content-between align-items-center" class="list-group-item list-group-item-secondary" class="list-group-item list-group-item-action list-group-item-primary">
             {{ category }}
             <span class="badge badge-primary ml-2">{{ task_count }}</span>
             <a href="{% url 'todolist:deleteCategory' category.id %}" class="text-danger ml-2" onclick="return confirm('Are you sure you want to delete this Category?')">
