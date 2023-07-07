@@ -1,7 +1,7 @@
 {% extends 'todos/layout.html' %}
 
 {% block body %}
-   <h4>Tasks for Category: {{ category.title }}</h4>
+   <h4 style="font-weight: bold;">Tasks for Category: {{ category.title }}</h4>
    <br>
    {% for  task in tasks  %}
       <ul class="list-group">
